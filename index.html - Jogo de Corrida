@@ -1,0 +1,80 @@
+function setup() {
+  createCanvas(400, 400);
+}
+  let xJogador = [0,0,0,0]
+  let yJogador = [80,160,240,320]
+  let emoji = ["🚔","🚖","🚘","🚍"]
+  
+function draw() {
+  ativaJogo()
+  desenhaJogadores()
+  linhaChegada()
+  movimentaJogo()
+}
+
+  function ativaJogo(){  
+  if (focused == true) {
+    background('rgb(0,145,255)');
+  } else {
+    background('rgb(238,122,130)')
+    }
+  }
+  
+  function desenhaJogadores() {
+    textSize(40);
+    text(emoji[0],xJogador[0],yJogador[0])
+    text(emoji[1],xJogador[1],yJogador[1])
+    text(emoji[2],xJogador[2],yJogador[2])
+    text(emoji[3],xJogador[3],yJogador[3])
+  }
+    
+
+  function linhaChegada(){
+  rect(350,0,10,400)
+   fill('white');
+    rect(350, 0, 10, 400);
+    fill('black');
+    for (let yAtual1=0; yAtual1 < 400; yAtual1 += 20){
+        rect(350, yAtual1, 10, 10);
+    }
+     fill('black');
+   rect(360, 0, 10, 400);
+    fill('white');
+   for (let yAtual2=0; yAtual2< 400; yAtual2 += 20){
+      rect(360, yAtual2, 10, 10);}
+  }
+  
+
+    function movimentaJogo(){
+  if (xJogador[0] > 350) {
+    text("Jogador 1 venceu", 50, 250);
+    noLoop();
+  }
+  if (xJogador[1] > 350) {
+    text("Jogador 2 venceu", 50, 250);
+    noLoop();
+  }
+  if (xJogador[2] > 350) {
+    text("Jogador 3 venceu", 50, 250);
+    noLoop();
+  }
+  if (xJogador[3] > 350) {
+    text("Jogador 4 venceu", 50, 250);
+    noLoop();
+  }
+}
+
+  function keyReleased() {
+    if(key==='a'){
+    xJogador[0] = xJogador[0] + random(20)
+  }
+  if(key==='s'){
+    xJogador[1] = xJogador[1] + random(20)
+     }
+  if(key==='d'){
+    xJogador[2] = xJogador[2] + random(20)
+     }
+  if(key==='f'){
+    xJogador[3] = xJogador[3] + random(20)
+    }
+  }
